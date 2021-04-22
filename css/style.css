@@ -1,7 +1,3 @@
-/* backendless
-dark
-light */
-
 :root{
     --bg-dark: #212121;
     --bg-dark-content: #484848;
@@ -15,9 +11,7 @@ light */
     --bg-custom-content: #326280;
     --color-custom: #FFDFC8;
 
-    --animate-bg-dark: ;
-    --animate-bg-light: ;
-    --animate-bg-custom: background-image: linear-gradient(to right , #BF7130,#FFD073,#FF9640,#FFBF40);
+    --animate-bg-custom: linear-gradient(to right , #BF7130,#FFD073,#FF9640,#FFBF40);
 }
 
 html{
@@ -42,11 +36,19 @@ li{
     list-style: none;
 }
 
-.light a, li{
+.light a,
+.light a:hover{
+    color: var(--color-light);
+}
+.light li{
     color: var(--color-light);
 }
 
-.backendless a, li{
+.backendless a,
+.backendless a:hover{
+    color: var(--color-custom);
+}
+.backendless li{
     color: var(--color-custom);
 }
 
