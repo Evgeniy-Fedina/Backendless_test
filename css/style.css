@@ -1,0 +1,355 @@
+/* backendless
+dark
+light */
+
+:root{
+    --bg-dark: #212121;
+    --bg-dark-content: #484848;
+    --color-dark: #fff; 
+
+    --bg-light: #b0bec5;
+    --bg-light-content: #e2f1f8;
+    --color-light: #000;
+
+    --bg-custom: #212E53;
+    --bg-custom-content: #326280;
+    --color-custom: #FFDFC8;
+
+    --animate-bg-dark: ;
+    --animate-bg-light: ;
+    --animate-bg-custom: background-image: linear-gradient(to right , #BF7130,#FFD073,#FF9640,#FFBF40);
+}
+
+html{
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+a,
+a:hover{
+    color: var(--color-dark);
+    text-decoration: none;
+    display: inline-block;
+}
+
+li{
+    color: var(--color-dark);
+    list-style: none;
+}
+
+.light a, li{
+    color: var(--color-light);
+}
+
+.backendless a, li{
+    color: var(--color-custom);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body.dark{color: var(--color-dark);}
+body.light{color: var(--color-light);}
+body.backendless{color: var(--color-custom);}
+
+            /* header */
+.header{
+    position: sticky;
+    top: 0;
+    padding: 5px 15px;
+    height: 50px;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.light .header,
+.light .footer{
+    background-color: var(--bg-light);
+}
+
+.backendless .header,
+.backendless .footer{
+    background-color: var(--bg-custom);
+}
+
+.switcher-hard{
+    display: flex;
+}
+
+.switcher-hard__item{
+    padding-left: 15px;
+}
+
+.switcher-middle,
+.switcher-small{
+    display: none;
+}
+
+                /* main */
+.main{
+    background-color: var(--bg-dark-content);
+    height: calc(100vh - 100px);
+    width: 100%;
+    overflow: auto;
+    padding: 10px 10px 35px;
+}
+
+.light .main {
+    background-color: var(--bg-light-content);
+}
+.backendless .main {
+    background-color: var(--bg-custom-content);
+}
+
+.gallery-title{
+    padding: 10px 20px;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+
+	color: transparent;
+	background-image: linear-gradient(to right , #BF7130,#FFD073,#FF9640,#FFBF40);
+	-webkit-background-clip: text;
+	animation: animate 20s linear infinite;
+	background-size: 1000%;
+
+}
+
+@keyframes animate {
+	0% {
+		background-position: 0% 100%;
+	}
+	50% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 0% 100%;
+	}
+}
+
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 10px 10px;
+  grid-template-areas:
+    "img1 img1 img1 img2"
+    "img1 img1 img1 img3"
+    "img1 img1 img1 img4"
+    "img5 img6 img7 img8"
+    "img9 img10 img10 img10"
+    "img11 img10 img10 img10"
+    "img12 img10 img10 img10";
+}
+.img1 { grid-area: img1; }
+.img2 { grid-area: img2; }
+.img3 { grid-area: img3; }
+.img4 { grid-area: img4; }
+.img5 { grid-area: img5; }
+.img6 { grid-area: img6; }
+.img7 { grid-area: img7; }
+.img8 { grid-area: img8; }
+.img9 { grid-area: img9; }
+.img10 { grid-area: img10; }
+.img11 { grid-area: img11; }
+.img12 { grid-area: img12; }
+
+.gallery-img{   
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+}
+
+/*  */
+.gallery-item{
+  position: relative;
+  background: rgba(0,198,255,.7);;
+}
+
+.gallery-item img{
+	padding: 0;
+	margin: 0;
+
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 1;
+
+	transition: opacity .2s linear;
+}
+
+.gallery-item:hover img{
+  opacity: .5;
+}
+
+.gallery-btn__modal{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 3;
+	text-align: center;
+	opacity: 0;
+	transition: opacity .2s linear;
+
+    background: transparent;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-dark);
+}
+
+.light .gallery-btn__modal{color: var(--color-light);}
+.backendless .gallery-btn__modal{color: var(--color-custom);}
+
+.gallery-item:hover .gallery-btn__modal{
+  opacity: 1;
+}
+
+
+/*  */
+
+
+            /* footer */
+.footer{
+    position: sticky;
+    bottom: 0;
+    padding: 5px 15px;
+    height: 50px;
+    background-color: var(--bg-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-link a{
+    padding-right: 15px;
+}
+
+.footer-social{
+    display: flex;
+    align-items: center;
+}
+
+.footer-social__link{
+    padding-left: 15px;
+}
+
+.footer-social__link svg{
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* media */
+
+@media (max-width: 1080px){
+    .switcher-middle{
+        display: flex;
+    }
+    .switcher-middle__btn{
+        margin-left: 15px;
+    }
+    .switcher-hard {
+        display: none;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px 10px;
+        grid-template-areas:
+                        "img1 img1 img2"
+                        "img1 img1 img3"
+                        "img4 img4 img5"
+                        "img4 img4 img6"
+                        "img7 img7 img8"
+                        "img7 img7 img9"
+                        "img10 img10 img11"
+                        "img10 img10 img12";
+    }
+
+    .gallery-title {
+        padding: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 640px){
+    .switcher-middle{
+        display: none;
+    }
+    .switcher-small{
+        display: block;
+    }
+
+    .main {
+        padding: 10px;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 10px 10px;
+        grid-template-areas:
+                        "img1 img1 img1"
+                        "img1 img1 img1"
+                        "img2 img3 img4"
+                        "img5 img5 img5"
+                        "img5 img5 img5"
+                        "img6 img7 img8"
+                        "img9 img9 img9"
+                        "img9 img9 img9"
+                        "img10 img11 img12";
+    }
+
+    .footer {
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-link {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .footer-social {
+        justify-content: space-between;
+        width: 50%;
+    }
+    
+    .footer-link a,
+    .footer-social__link{
+        padding: 0;
+    }
+
+}
